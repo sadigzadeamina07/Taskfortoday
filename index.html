@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    input{
-      display:block;
+    input {
+      display: block;
       margin-bottom: 10px;
     }
   </style>
 </head>
+
 <body>
-  <input type="text" id="username">
-  <input type="text"  id="userlastname">
-  <input type="text" id="userage">
-  <button onchange="">Show</button>
+  <label>
+    Ad
+    <input type="text" id="username">
+  </label>
+  <label>
+    Soyad
+    <input type="text" id="userlastname">
+  </label>
+  <label for="">
+    Yas
+    <input type="number" id="userage">
+  </label>
+
+  <button onclick="show()">Show</button>
   <h3></h3>
   <script>
-const  username=document.getElementById('username').value
-const userlastname=document.getElementById('userlastname').value
-const userage=document.getElementById('userage').value
-let result=document.querySelector('h3')
-let user=[username, userlastname,userage]
-let show =()=>user.forEach(user=> result.innerHTML= user)
+    let user = {
+      name: "",
+      lastname: "",
+      age: ""
+    }
+    function show() {
+      user.name = document.getElementById('username').value
+      user.lastname = document.getElementById('userlastname').value
+      user.age = document.getElementById('userage').value
+      let result = document.querySelector('h3')
+      for (const key in user) {
+        result.innerHTML += user[key]+ " "
+      }
+
+    }
   </script>
 </body>
+
 </html>
